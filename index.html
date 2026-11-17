@@ -3,431 +3,575 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lívia Vittoria · Desenvolvedora Front-end</title>
-<meta name="description" content="Portfólio de Lívia Vittoria, desenvolvedora front-end. Projetos reais com JavaScript, Supabase, PostgreSQL e PWA: LumiNova, Agenda Expert, VIVA+ e outros.">
-<meta property="og:title" content="Lívia Vittoria · Desenvolvedora Front-end">
-<meta property="og:description" content="Aplicações completas, testadas e no ar: LumiNova, Agenda Expert, VIVA+.">
-<meta property="og:image" content="assets/img/p-luminova.jpg">
-<meta name="theme-color" content="#1f5fe0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5fe0'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-weight='700' font-size='16' fill='white'%3ELV%3C/text%3E%3C/svg%3E">
+<title>Lívia Vittoria · Desenvolvedora Full Stack</title>
+<meta name="description" content="Portfólio de Lívia Vittoria, desenvolvedora Full Stack e estudante de ADS na FATEC São Caetano do Sul. Aplicações completas com JavaScript, Node.js, Python, PostgreSQL e Supabase.">
+<meta property="og:title" content="Lívia Vittoria · Desenvolvedora Full Stack">
+<meta property="og:description" content="Aplicações completas, da interface ao banco de dados: LumiNova, Agenda Expert, VIVA+ e outros projetos.">
+<meta property="og:image" content="https://liviavittoria28-create.github.io/assets/img/luminova-claro.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1769AA">
+<link rel="icon" href="assets/monogram.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f8fafd; --white:#ffffff; --ink:#0e1b33; --ink-2:#3b4a66; --muted:#5d6b85;
-  --blue:#1f5fe0; --blue-deep:#0f3a9a; --blue-soft:#dce7fb; --line:#d3deef; --ok:#13865a;
-  --display:"Bricolage Grotesque",-apple-system,"Segoe UI",sans-serif;
-  --body:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+  --blue:#1769AA; --blue-2:#58A6E7; --ice:#EAF4FF; --white:#FFFFFF; --gray:#F3F6FA; --ink:#172B45;
+  --ink-2:#3D516B; --muted:#5B6B80; --line:#D6E2EF; --metal:#C9D6E6; --ok:#13865A;
+  --font:"Instrument Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --wrap:1180px; --r-lg:22px; --r-md:14px; --r-sm:8px;
+  --wrap:1160px; --r-xl:24px; --r-lg:18px; --r-md:12px;
+  --lift:0 1px 0 rgba(255,255,255,.9) inset, 0 18px 40px -28px rgba(23,105,170,.45);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--gray);color:var(--ink);font:400 1.0625rem/1.65 var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--blue)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--blue-2);outline-offset:3px;border-radius:8px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
-.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:50}
-.skip:focus{left:12px}
+.skip{position:absolute;left:-9999px;top:10px;z-index:60;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px}
+.skip:focus{left:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* blueprint grid behind the page */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:48px 48px;opacity:.38;
-  -webkit-mask-image:linear-gradient(180deg,#000 0,transparent 720px);mask-image:linear-gradient(180deg,#000 0,transparent 720px)}
+/* dotted engineering grid only behind the top of the page */
+body::before{content:"";position:absolute;inset:0 0 auto 0;height:900px;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(23,105,170,.16) 1px, transparent 0);background-size:24px 24px;
+  -webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
 
-/* header */
-header.top{position:sticky;top:0;z-index:20;background:rgba(248,250,253,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
-header.top.scrolled{border-bottom-color:var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 1.05rem var(--display)}
-.brand i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--blue);color:#fff;font:700 .85rem var(--display);font-style:normal}
-.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
-.nav ul a{display:block;padding:8px 12px;border-radius:999px;color:var(--ink-2);text-decoration:none;font-size:.94rem;font-weight:500}
-.nav ul a:hover,.nav ul a[aria-current="true"]{background:var(--blue-soft);color:var(--blue-deep)}
-.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
-@media (max-width:880px){
-  .menu-btn{display:grid;place-items:center}
-  .nav ul{position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--white);border-bottom:1px solid var(--line);padding:10px 20px 18px;display:none}
-  .nav ul.open{display:flex}
-  .nav ul a{padding:12px 10px;border-radius:10px}
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;background:rgba(243,246,250,.78);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
+.top.on{border-bottom-color:var(--line);background:rgba(255,255,255,.82)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:600;letter-spacing:-.01em}
+.brand img{width:36px;height:36px}
+.menu{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 13px;border-radius:999px;color:var(--ink-2);text-decoration:none;font-size:.95rem;font-weight:500;transition:background .2s,color .2s}
+.menu a:hover{background:var(--ice);color:var(--blue)}
+.menu a[aria-current="true"]{color:var(--blue);background:var(--ice)}
+.menu .cta{margin-left:8px;background:var(--ink);color:#fff}
+.menu .cta:hover{background:var(--blue);color:#fff}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer}
+@media (max-width:900px){
+  .burger{display:grid;place-items:center}
+  .menu{position:absolute;left:0;right:0;top:72px;display:none;flex-direction:column;align-items:stretch;padding:10px 20px 20px;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 20px 30px -24px rgba(23,43,69,.4)}
+  .menu.open{display:flex}
+  .menu a{padding:13px 12px;border-radius:12px}
+  .menu .cta{margin:8px 0 0;text-align:center}
 }
 
-/* hero */
-.hero{padding:76px 0 64px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.hello{font:500 1.05rem var(--body);color:var(--blue-deep);margin:0 0 14px}
-h1{font:800 clamp(2.9rem,7vw,5.6rem)/.95 var(--display);letter-spacing:-.035em;margin:0}
-h1 .last{display:block;color:var(--blue)}
-.lede{font-size:1.2rem;color:var(--ink-2);max-width:34em;margin:26px 0 32px}
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 22px;border-radius:999px;font:600 .97rem var(--font);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s,color .18s,border-color .18s}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 22px -12px rgba(23,105,170,.8)}
+.btn-primary:hover{background:#125a93;transform:translateY(-1px);box-shadow:0 14px 26px -12px rgba(23,105,170,.85)}
+.btn-ghost{background:var(--white);color:var(--ink);border-color:var(--line);box-shadow:0 1px 0 #fff inset}
+.btn-ghost:hover{border-color:var(--blue-2);color:var(--blue);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:.9rem}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.mono-mark{width:76px;height:76px;margin-bottom:28px;filter:drop-shadow(0 14px 22px rgba(23,105,170,.22))}
+h1{margin:0;font-weight:700;font-size:clamp(2.7rem,6.2vw,4.6rem);line-height:1;letter-spacing:-.04em}
+.role{margin:16px 0 0;font-size:clamp(1.2rem,2.2vw,1.5rem);font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.lede{margin:22px 0 34px;max-width:33em;color:var(--ink-2);font-size:1.13rem}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font:600 .98rem var(--body);text-decoration:none;border:1.5px solid var(--blue);transition:background .15s,color .15s,transform .15s}
-.btn.primary{background:var(--blue);color:#fff}
-.btn.primary:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
-.btn.ghost{color:var(--blue-deep);background:var(--white)}
-.btn.ghost:hover{background:var(--blue-soft)}
-.btn:active{transform:translateY(1px)}
+.where{margin:30px 0 0;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.93rem}
+.where span{display:inline-flex;align-items:center;gap:7px}
+.where svg{width:16px;height:16px;color:var(--blue)}
 
-/* the one bold element: a test-run panel with real numbers */
-.run{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:0 30px 60px -30px rgba(15,58,154,.35);overflow:hidden}
-.run-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:#f2f6fd;font:500 .82rem var(--mono);color:var(--muted)}
-.run-head span{width:10px;height:10px;border-radius:50%;background:#c8d5ea}
-.run-head b{margin-left:auto;font-weight:500}
-.run pre{margin:0;padding:20px 20px 22px;font:400 .86rem/1.85 var(--mono);color:var(--ink-2);white-space:pre-wrap;min-height:300px}
-.run .cmd{color:var(--ink)}
-.run .ok{color:var(--ok);font-weight:500}
-.run .dim{color:#8a97ad}
-.run .total{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:6px;background:#e3f4ec;color:var(--ok);font-weight:500}
-.caret{display:inline-block;width:8px;height:1.05em;background:var(--blue);vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-@media (max-width:480px){.run pre{font-size:.72rem;padding:16px 14px;min-height:0}.run-head b{font-size:.72rem}}
-@media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero{padding-top:48px}}
+/* system diagram: the single bold element */
+.system{position:relative;padding:26px;border-radius:var(--r-xl);background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(234,244,255,.75));border:1px solid var(--metal);box-shadow:var(--lift)}
+.system::after{content:"";position:absolute;inset:6px;border-radius:19px;border:1px solid rgba(23,105,170,.08);pointer-events:none}
+.system svg{width:100%;height:auto;display:block}
+.system .box{fill:#fff;stroke:#C9D6E6}
+.system .box.api{fill:var(--ice);stroke:#B9D4EE}
+.system .t{font:600 14px var(--font);fill:var(--ink)}
+.system .s{font:500 11.5px var(--mono);fill:var(--muted)}
+.system .wire{fill:none;stroke:#C4D6EA;stroke-width:2}
+.system .flow{fill:none;stroke:var(--blue-2);stroke-width:2;stroke-dasharray:5 11;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.system .pkt{fill:var(--blue)}
+.system figcaption{margin-top:14px;font-size:.88rem;color:var(--muted);text-align:center}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:44px}.hero{padding-top:44px}}
 
-/* sections */
-section.block{padding:84px 0;border-top:1px solid var(--line)}
-.head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:44px}
-h2{font:700 clamp(1.9rem,3.6vw,2.6rem)/1.08 var(--display);letter-spacing:-.02em;margin:0}
-.head p{margin:4px 0 0;color:var(--ink-2);max-width:40em}
+/* page-load moment, hero only */
+.rise{opacity:0;transform:translateY(12px);animation:rise .75s cubic-bezier(.2,.7,.2,1) forwards}
+.rise.d1{animation-delay:.06s}.rise.d2{animation-delay:.14s}.rise.d3{animation-delay:.22s}.rise.d4{animation-delay:.3s}.rise.d5{animation-delay:.38s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- sections ---------- */
+section.block{padding:92px 0;border-top:1px solid var(--line)}
+section.alt{background:var(--white)}
+.head{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:end;margin-bottom:46px}
+h2{margin:0;font-weight:700;font-size:clamp(1.9rem,3.4vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.head p{margin:0;max-width:40em;color:var(--ink-2)}
 @media (max-width:860px){.head{grid-template-columns:1fr;gap:12px}}
 
 /* about */
-.about{display:grid;grid-template-columns:260px 1fr;gap:40px}
-.about .text{max-width:42em;font-size:1.12rem}
-.about .text p{margin:0 0 1.1em}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--white)}
-.facts div{padding:18px 20px}
+.about{display:grid;grid-template-columns:280px 1fr;gap:40px}
+.about .txt{max-width:44em;font-size:1.1rem;color:var(--ink-2)}
+.about .txt p{margin:0 0 1.1em}
+.about .txt strong{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:30px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--gray);overflow:hidden}
+.facts div{padding:20px 22px}
 .facts div+div{border-left:1px solid var(--line)}
-.facts strong{display:block;font:700 1.9rem var(--display);color:var(--blue-deep)}
-.facts span{color:var(--muted);font-size:.92rem}
-@media (max-width:860px){.about{grid-template-columns:1fr;gap:12px}}
-@media (max-width:560px){.facts{grid-template-columns:1fr}.facts div+div{border-left:0;border-top:1px solid var(--line)}}
+.facts b{display:block;font-size:1.7rem;letter-spacing:-.02em;color:var(--blue)}
+.facts span{font-size:.92rem;color:var(--muted)}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:14px}}
+@media (max-width:600px){.facts{grid-template-columns:1fr}.facts div+div{border-left:0;border-top:1px solid var(--line)}}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.skill{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:22px}
-.skill h3{font:700 1.15rem var(--display);margin:0 0 6px}
-.skill p{margin:0 0 14px;color:var(--muted);font-size:.93rem;line-height:1.5}
-.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
-.tags li{font-size:.85rem;padding:4px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue-deep);font-weight:500}
-@media (max-width:1000px){.skills{grid-template-columns:repeat(2,1fr)}}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill{padding:24px;border-radius:var(--r-lg);background:var(--white);border:1px solid var(--line);box-shadow:0 1px 0 #fff inset}
+.skill .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--ice);color:var(--blue);margin-bottom:16px}
+.skill .ic svg{width:20px;height:20px}
+.skill h3{margin:0 0 6px;font-size:1.12rem;letter-spacing:-.01em}
+.skill p{margin:0 0 16px;color:var(--muted);font-size:.93rem;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.tags li{font-size:.84rem;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--gray);color:var(--ink-2);border:1px solid var(--line)}
+.tags li.study{background:#fff;border-style:dashed;color:var(--muted)}
+.legend{margin-top:18px;font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:26px;height:16px;border-radius:999px;border:1px dashed var(--muted)}
+@media (max-width:1020px){.skills{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.skills{grid-template-columns:1fr}}
 
 /* projects */
-.project{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:40px 0}
-.project+.project{border-top:1px dashed var(--line)}
-.project.flip .media{order:2}
-.media{position:relative}
-.shot{border-radius:var(--r-md);border:1px solid var(--line);box-shadow:0 24px 48px -28px rgba(14,27,51,.35);background:var(--white)}
-.phones{display:flex;gap:16px;justify-content:center}
-.phones img{width:min(31%,200px);border-radius:22px;border:6px solid var(--ink);box-shadow:0 24px 40px -24px rgba(14,27,51,.45)}
-.phones img:nth-child(2){transform:translateY(-18px)}
-.status{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;font-weight:600;color:var(--ok);background:#e3f4ec;padding:4px 11px;border-radius:999px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 34px}
+.filters button{font:500 .92rem var(--font);padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--white);color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filters button:hover{border-color:var(--blue-2);color:var(--blue)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.projects{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.card{grid-column:span 3;display:flex;flex-direction:column;border-radius:var(--r-xl);background:var(--white);border:1px solid var(--line);overflow:hidden;box-shadow:0 1px 0 #fff inset;transition:box-shadow .25s,transform .25s,border-color .25s}
+.card:hover{border-color:#BFD6EE;box-shadow:var(--lift)}
+.card.feature{grid-column:span 6;display:grid;grid-template-columns:1.1fr 1fr}
+.card.small{grid-column:span 2}
+.card[hidden]{display:none}
+.shot{position:relative;background:var(--ice);border-bottom:1px solid var(--line);overflow:hidden}
+.feature .shot{border-bottom:0;border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:28px}
+.shot > img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.feature .shot > img{aspect-ratio:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 20px 40px -26px rgba(23,43,69,.5)}
+.phones{display:flex;gap:14px;justify-content:center;align-items:flex-end;padding:26px 18px 0;width:100%}
+.phones img{width:min(30%,170px);aspect-ratio:auto;border-radius:18px 18px 0 0;border:5px solid var(--ink);border-bottom:0}
+.phones img:nth-child(2){width:min(34%,190px)}
+.phone-one{display:flex;justify-content:center;padding:22px 0 0}
+.phone-one img{width:52%;max-width:200px;aspect-ratio:auto;border-radius:18px 18px 0 0;border:5px solid var(--ink);border-bottom:0}
+.swap{position:absolute;right:16px;bottom:16px}
+.body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.feature .body{padding:34px}
+.cat{font-size:.86rem;font-weight:600;color:var(--blue)}
+.card h3{margin:6px 0 10px;font-size:1.5rem;letter-spacing:-.025em;line-height:1.15}
+.feature h3{font-size:2rem}
+.desc{margin:0 0 14px;color:var(--ink-2)}
+.problem{margin:0 0 16px;padding:12px 14px;border-left:3px solid var(--blue-2);background:var(--gray);border-radius:0 10px 10px 0;font-size:.95rem;color:var(--ink-2)}
+.problem b{color:var(--ink)}
+.feat{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:7px;font-size:.96rem}
+.feat li{position:relative;padding-left:22px}
+.feat li::before{content:"";position:absolute;left:3px;top:.55em;width:8px;height:8px;border-radius:2px;background:var(--blue-2);transform:rotate(45deg)}
+.card .tags{margin-bottom:20px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.status.plan{color:#8a5a00;background:#fff3d6}
-.status.local{color:var(--blue-deep);background:var(--blue-soft)}
-.project h3{font:800 clamp(1.8rem,3.4vw,2.4rem)/1.05 var(--display);letter-spacing:-.02em;margin:14px 0 10px}
-.project .desc{color:var(--ink-2);margin:0 0 18px}
-.project ul.feat{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:8px}
-.project ul.feat li{padding-left:22px;position:relative;font-size:.98rem}
-.project ul.feat li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:2px;border:2px solid var(--blue);transform:rotate(45deg)}
-.project .tags{margin-bottom:22px}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.links .btn{padding:10px 18px;font-size:.92rem}
-@media (max-width:900px){.project{grid-template-columns:1fr;gap:26px}.project.flip .media{order:0}}
+.status.live{color:var(--ok);background:#E5F5EE}
+.status.use{color:var(--blue);background:var(--ice)}
+.status.dev{color:#8A5A00;background:#FFF4DA}
+.status.arch{color:var(--muted);background:var(--gray)}
+.private{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.private svg{width:16px;height:16px}
+@media (max-width:1020px){.card.small{grid-column:span 3}}
+@media (max-width:860px){.card.feature{grid-template-columns:1fr}.feature .shot{border-right:0;border-bottom:1px solid var(--line)}.feature .body{padding:26px}}
+@media (max-width:700px){.projects{grid-template-columns:1fr}.card,.card.small,.card.feature{grid-column:auto}}
 
-.minis{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
-.mini{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column}
-.mini img{aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
-.mini .in{padding:22px;display:flex;flex-direction:column;flex:1}
-.mini h3{font:700 1.4rem var(--display);margin:0 0 8px}
-.mini p{color:var(--ink-2);margin:0 0 16px;font-size:.97rem}
-.mini .links{margin-top:auto}
-@media (max-width:760px){.minis{grid-template-columns:1fr}}
-
-/* timeline (it is a real sequence) */
-.timeline{list-style:none;margin:0;padding:0;position:relative;max-width:820px}
-.timeline::before{content:"";position:absolute;left:118px;top:6px;bottom:6px;width:2px;background:var(--line)}
-.timeline li{display:grid;grid-template-columns:100px 1fr;gap:38px;padding:0 0 30px;position:relative}
-.timeline li::after{content:"";position:absolute;left:112px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--white);border:3px solid var(--blue)}
-.timeline time{font:500 .95rem var(--body);color:var(--muted);text-align:right;padding-top:2px}
-.timeline h3{font:700 1.15rem var(--display);margin:0 0 4px}
-.timeline p{margin:0;color:var(--ink-2)}
-@media (max-width:560px){
-  .timeline::before{left:7px}.timeline li{grid-template-columns:1fr;gap:4px;padding-left:34px}
-  .timeline li::after{left:1px}.timeline time{text-align:left}
-}
-
-/* github */
-.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.repo{display:flex;flex-direction:column;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s}
-.repo:hover{border-color:var(--blue);box-shadow:0 10px 24px -16px rgba(31,95,224,.6)}
-.repo strong{font:600 1.02rem var(--body);color:var(--blue-deep)}
-.repo span{color:var(--muted);font-size:.92rem;line-height:1.5}
-.repo small{margin-top:auto;color:var(--muted);font-size:.84rem;display:flex;align-items:center;gap:6px}
-.repo small i{width:10px;height:10px;border-radius:50%;background:#e34c26}
-.gh-foot{margin-top:22px;color:var(--muted);font-size:.92rem}
+/* github list */
+.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.repo{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:var(--r-md);background:var(--white);border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
+.repo:hover{border-color:var(--blue-2);transform:translateY(-2px)}
+.repo strong{font-weight:600;color:var(--blue)}
+.repo span{font-size:.93rem;color:var(--muted);line-height:1.5}
+.repo small{margin-top:auto;display:flex;align-items:center;gap:7px;font-size:.84rem;color:var(--muted)}
+.repo small i{width:10px;height:10px;border-radius:50%}
+.gh-foot{margin:22px 0 0;font-size:.93rem;color:var(--muted)}
 @media (max-width:900px){.repos{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.repos{grid-template-columns:1fr}}
 
 /* contact */
-.contact{background:var(--blue);color:#fff;border-radius:var(--r-lg);padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.contact::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,255,255,.25);box-shadow:0 0 0 46px rgba(255,255,255,.05),0 0 0 92px rgba(255,255,255,.04)}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:52px;border-radius:var(--r-xl);background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;right:-60px;bottom:-140px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(88,166,231,.35);box-shadow:0 0 0 50px rgba(88,166,231,.06),0 0 0 100px rgba(88,166,231,.04)}
 .contact h2{color:#fff}
-.contact p{color:#dbe6ff;margin:14px 0 0;max-width:30em}
-.contact .list{display:grid;gap:12px;position:relative;z-index:1}
-.contact .list a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-radius:var(--r-md);background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.22)}
-.contact .list a:hover{background:#fff;color:var(--blue-deep)}
-.contact .list a:focus-visible{outline-color:#fff}
-@media (max-width:860px){.contact{grid-template-columns:1fr;padding:36px 26px}}
+.contact p{margin:14px 0 0;color:#C7D6E8;max-width:28em}
+.ways{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;position:relative;z-index:1}
+.way{min-width:0;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--r-lg);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+.way:hover{background:rgba(255,255,255,.12);border-color:rgba(88,166,231,.6)}
+.way .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(88,166,231,.18);color:#9CCBF3;flex:none}
+.way .ic svg{width:20px;height:20px}
+.way div{min-width:0}
+.way b{display:block;font-weight:600}
+.way span{display:block;color:#AFC3DA;font-size:.92rem;overflow-wrap:anywhere}
+.copy{margin-left:auto;flex:none;font:600 .85rem var(--font);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;transition:background .2s,color .2s}
+.copy:hover{background:#fff;color:var(--ink)}
+.copy:focus-visible{outline-color:#fff}
+.way:focus-visible{outline-color:#fff}
+@media (max-width:860px){.contact{grid-template-columns:minmax(0,1fr);padding:34px 22px;gap:30px}}
+.contact > *{min-width:0}
+@media (max-width:400px){.copy{padding:7px 10px}.way{gap:12px;padding:14px}}
 
-footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{padding:34px 0 46px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
+footer .wrap > span{display:flex;align-items:center;gap:10px}
+footer img{width:24px;height:24px}
 
-/* single orchestrated load moment for the hero only */
-.hero .reveal{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
-.hero .reveal:nth-child(2){animation-delay:.08s}.hero .reveal:nth-child(3){animation-delay:.16s}.hero .reveal:nth-child(4){animation-delay:.24s}
-@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rise{opacity:1;transform:none}
+  .system .pkt{display:none}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="top" id="top">
-  <nav class="wrap nav" aria-label="Seções">
-    <a class="brand" href="#inicio"><i>LV</i>Lívia Vittoria</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<!-- ícones -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 20 20"><path d="M8 4H4v12h12v-4M11 3h6v6M17 3l-8 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.83v1.5h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13v5.43h-4v-4.82c0-1.15-.02-2.63-1.6-2.63-1.61 0-1.85 1.25-1.85 2.55v4.9h-4v-11Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z M3.5 7l8.5 6.5L20.5 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 20 20"><path d="M5.5 9V6.5a4.5 4.5 0 0 1 9 0V9M4 9h12v8H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9Zm4 2.2V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.8M22 9v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-ui" viewBox="0 0 24 24"><path d="M3.5 4.5h17v15h-17zM3.5 9h17M7 6.8h.01" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-api" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Zm0 0v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M6 3v6m0 0a3 3 0 1 0 0 6m0-6a3 3 0 1 1 0 6m0 0v6M18 3v4m0 0a3 3 0 1 0 0 6m0-6a3 3 0 1 1 0 6m0 0v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="top" id="topo">
+  <nav class="wrap nav" aria-label="Navegação principal">
+    <a class="brand" href="#inicio"><img src="assets/monogram.svg" alt="" width="36" height="36">Lívia Vittoria</a>
+    <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
-    <ul id="menu">
+    <ul class="menu" id="menu">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#habilidades">Habilidades</a></li>
       <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
       <li><a href="#github">GitHub</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a class="cta" href="#contato">Contato</a></li>
     </ul>
   </nav>
 </header>
 
 <main id="conteudo">
+  <!-- ======= início ======= -->
   <section class="hero" id="inicio">
     <div class="wrap hero-grid">
       <div>
-        <p class="hello reveal">Oi, eu sou a</p>
-        <h1 class="reveal">Lívia <span class="last">Vittoria</span></h1>
-        <p class="lede reveal">Desenvolvedora front-end. Construo aplicações completas, da interface às regras no banco de dados, e coloco no ar com testes que provam que funcionam.</p>
-        <div class="actions reveal">
-          <a class="btn primary" href="#projetos">Ver projetos</a>
-          <a class="btn ghost" href="https://github.com/liviavittoria28-create" target="_blank" rel="noopener">Meu GitHub</a>
+        <img class="mono-mark rise" src="assets/monogram.svg" alt="Monograma L de Lívia" width="76" height="76">
+        <h1 class="rise d1">Lívia Vittoria</h1>
+        <p class="role rise d2">Desenvolvedora Full Stack</p>
+        <p class="lede rise d3">Transformo ideias em aplicações funcionais, da interface à lógica de negócio, às APIs e ao banco de dados. Hoje tenho dois sistemas no ar, construídos e testados por mim.</p>
+        <div class="actions rise d4">
+          <a class="btn btn-primary" href="#projetos">Ver projetos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#contato">Entrar em contato</a>
         </div>
+        <p class="where rise d5">
+          <span><svg aria-hidden="true"><use href="#i-cap"/></svg>ADS · FATEC São Caetano do Sul</span>
+          <span><svg aria-hidden="true"><use href="#i-api"/></svg>Front-end e Back-end</span>
+        </p>
       </div>
 
-      <div class="run" aria-label="Resultado dos testes automatizados dos projetos principais">
-        <div class="run-head"><span></span><span></span><span></span><b>testes · LumiNova e Agenda Expert</b></div>
-        <pre id="run" aria-live="off"><span class="cmd">$ bash rodar-testes.sh</span>
-<span class="ok">✓</span> isolamento de dados (RLS)   <span class="dim">17/17</span>
-<span class="ok">✓</span> funcionalidades             <span class="dim">33/33</span>
-<span class="ok">✓</span> posts e subcomunidades      <span class="dim">23/23</span>
-<span class="ok">✓</span> árvore de habilidades       <span class="dim">8/8</span>
-<span class="cmd">$ npm test</span>
-<span class="ok">✓</span> login, clientes, agenda     <span class="dim">API</span>
-<span class="ok">✓</span> CSRF, XSS e PWA             <span class="dim">segurança</span>
-<span class="ok">✓</span> robô do WhatsApp simulado   <span class="dim">integração</span>
-<span class="total">162 testes · 0 falhas</span> <span class="caret"></span></pre>
-      </div>
+      <figure class="system rise d3" style="margin:0">
+        <svg viewBox="0 0 460 336" role="img" aria-labelledby="sys-t">
+          <title id="sys-t">Como meus projetos são construídos: interface, API e banco de dados conectados</title>
+          <path id="w1" class="wire" d="M150 91 H244 V132"/>
+          <path id="w2" class="wire" d="M286 174 H372 V232"/>
+          <path id="w3" class="wire" d="M87 130 V296 H326"/>
+          <path class="flow" d="M150 91 H244 V132"/>
+          <path class="flow" d="M286 174 H372 V232"/>
+          <path class="flow" d="M87 130 V296 H326" style="animation-duration:2.2s"/>
+
+          <g class="node">
+            <rect class="box" x="24" y="52" width="126" height="78" rx="14"/>
+            <rect x="40" y="70" width="34" height="6" rx="3" fill="#1769AA"/>
+            <rect x="40" y="84" width="88" height="5" rx="2.5" fill="#D9E5F2"/>
+            <rect x="40" y="96" width="64" height="5" rx="2.5" fill="#D9E5F2"/>
+            <text class="t" x="24" y="38">Interface</text>
+            <text class="s" x="108" y="38">HTML · CSS · JS</text>
+          </g>
+          <g class="node api">
+            <rect class="box api" x="202" y="132" width="84" height="84" rx="18"/>
+            <text class="t" x="244" y="179" text-anchor="middle" style="fill:#1769AA">API</text>
+            <text class="s" x="202" y="238">Node.js · Python</text>
+          </g>
+          <g class="node">
+            <ellipse cx="372" cy="244" rx="46" ry="12" fill="#fff" stroke="#B9D4EE" stroke-width="1.5"/>
+            <path d="M326 244v40c0 6.6 20.6 12 46 12s46-5.4 46-12v-40" fill="#fff" stroke="#B9D4EE" stroke-width="1.5"/>
+            <path d="M326 264c0 6.6 20.6 12 46 12s46-5.4 46-12" fill="none" stroke="#D9E5F2" stroke-width="1.5"/>
+            <text class="t" x="384" y="222">Dados</text>
+            <text class="s" x="440" y="326" text-anchor="end">PostgreSQL · Supabase</text>
+          </g>
+          <circle class="pkt" r="4.5"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+          <circle class="pkt" r="4.5"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+        </svg>
+        <figcaption>A mesma arquitetura aparece nos meus projetos: interface, regras de negócio e dados.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="block" id="sobre">
+  <!-- ======= sobre ======= -->
+  <section class="block alt" id="sobre">
     <div class="wrap about">
       <h2>Sobre mim</h2>
-      <div class="text">
-        <p>Comecei com páginas únicas em HTML, CSS e JavaScript: um jogo para ensinar lógica de programação e um catálogo de cores. Em poucos meses, passei a construir sistemas completos, com autenticação, banco relacional, regras de acesso e deploy.</p>
-        <p>Hoje meu trabalho mais visível é a <strong>LumiNova</strong>, uma rede social de comunidades, e o <strong>Agenda Expert</strong>, um sistema que um estúdio de estética usa no dia a dia. Nos dois, cuido da experiência no celular, da acessibilidade e da privacidade dos dados (LGPD) com o mesmo peso.</p>
+      <div class="txt">
+        <p>Sou estudante de <strong>Análise e Desenvolvimento de Sistemas na FATEC São Caetano do Sul</strong> e atuo como desenvolvedora Full Stack. Gosto de acompanhar uma aplicação de ponta a ponta: desenhar a interface, escrever a lógica de negócio, criar a API e modelar o banco de dados.</p>
+        <p>Minha experiência prática vem dos meus projetos. A <strong>LumiNova</strong> é uma rede social de comunidades com regras de acesso no próprio banco. O <strong>Agenda Expert</strong> é usado no dia a dia por uma profissional de estética. O <strong>VIVA+</strong> nasceu da documentação de engenharia de software antes da primeira linha de código. Em todos eles, testo o que construo e cuido da privacidade dos dados (LGPD).</p>
         <div class="facts">
-          <div><strong>2</strong><span>aplicações no ar</span></div>
-          <div><strong>162</strong><span>testes automatizados</span></div>
-          <div><strong>120+</strong><span>políticas de segurança no banco</span></div>
+          <div><b>2</b><span>sistemas em uso real</span></div>
+          <div><b>162</b><span>testes automatizados nos dois principais</span></div>
+          <div><b>6</b><span>projetos documentados</span></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ======= habilidades ======= -->
   <section class="block" id="habilidades">
     <div class="wrap">
       <div class="head">
         <h2>Habilidades</h2>
-        <p>Só o que uso nos projetos abaixo, e você pode conferir no código.</p>
+        <p>Organizadas por área. Quase tudo aqui aparece no código dos projetos abaixo. O que ainda estou estudando vem marcado.</p>
       </div>
       <div class="skills">
-        <div class="skill">
+        <article class="skill">
+          <div class="ic"><svg aria-hidden="true"><use href="#i-ui"/></svg></div>
           <h3>Front-end</h3>
-          <p>Interfaces sem framework, responsivas e pensadas primeiro para o celular.</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PWA</li><li>Service Worker</li><li>Acessibilidade</li></ul>
-        </div>
-        <div class="skill">
+          <p>Interfaces responsivas, acessíveis e pensadas primeiro para o celular.</p>
+          <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsividade</li><li>Componentização</li><li>PWA</li></ul>
+        </article>
+        <article class="skill">
+          <div class="ic"><svg aria-hidden="true"><use href="#i-api"/></svg></div>
           <h3>Back-end</h3>
-          <p>APIs próprias e backend como serviço.</p>
-          <ul class="tags"><li>Node.js</li><li>Supabase</li><li>Auth</li><li>Realtime</li><li>Python / FastAPI</li></ul>
-        </div>
-        <div class="skill">
+          <p>Lógica de negócio, APIs REST e integração entre sistemas.</p>
+          <ul class="tags"><li>Node.js</li><li>Python</li><li>FastAPI</li><li>APIs REST</li><li>CRUD</li><li>Integrações</li></ul>
+        </article>
+        <article class="skill">
+          <div class="ic"><svg aria-hidden="true"><use href="#i-db"/></svg></div>
           <h3>Banco de dados</h3>
-          <p>Modelagem, migrações e regras de acesso direto no Postgres.</p>
-          <ul class="tags"><li>PostgreSQL</li><li>SQL</li><li>Row Level Security</li><li>Funções e triggers</li></ul>
-        </div>
-        <div class="skill">
-          <h3>Qualidade e entrega</h3>
-          <p>Testes automatizados, versionamento e publicação.</p>
-          <ul class="tags"><li>Testes (node:test, SQL)</li><li>Git e GitHub</li><li>Render</li><li>Docker</li><li>LGPD</li></ul>
-        </div>
+          <p>Modelagem, consultas, relacionamentos e regras de acesso.</p>
+          <ul class="tags"><li>SQL</li><li>PostgreSQL</li><li>Supabase</li><li>Modelagem</li><li>Row Level Security</li><li class="study">NoSQL</li></ul>
+        </article>
+        <article class="skill">
+          <div class="ic"><svg aria-hidden="true"><use href="#i-tool"/></svg></div>
+          <h3>Ferramentas</h3>
+          <p>Versionamento, publicação e desenho de interfaces.</p>
+          <ul class="tags"><li>Git</li><li>GitHub</li><li>VS Code</li><li>Render</li><li>Figma</li></ul>
+        </article>
       </div>
+      <p class="legend"><i aria-hidden="true"></i>Em estudo, ainda sem projeto público</p>
     </div>
   </section>
 
-  <section class="block" id="projetos">
+  <!-- ======= projetos ======= -->
+  <section class="block alt" id="projetos">
     <div class="wrap">
       <div class="head">
         <h2>Projetos</h2>
-        <p>Aplicações reais, com código aberto. Os dois primeiros estão em produção.</p>
+        <p>Primeiro os sistemas mais completos. Cada projeto mostra o problema que resolve e onde está o código.</p>
       </div>
 
-      <article class="project">
-        <div class="media">
-          <img class="shot" src="assets/img/p-luminova.jpg" alt="Página inicial da LumiNova com formulário de login e o texto Expresse, Compartilhe, Descubra, Conecte" width="1200" height="543" loading="lazy">
-        </div>
-        <div>
-          <span class="status">No ar</span>
-          <h3>LumiNova</h3>
-          <p class="desc">Rede social brasileira para encontrar gente com os mesmos interesses: fandoms, música, desenho, jogos. Em vez de um feed único, tudo gira em torno de comunidades e subcomunidades.</p>
-          <ul class="feat">
-            <li>Chat em tempo real e notificações</li>
-            <li>XP, níveis, conquistas e árvore de habilidades validada no banco</li>
-            <li>Download dos próprios dados e exclusão de conta (LGPD)</li>
-            <li>Tema claro e escuro, painel de moderação</li>
-          </ul>
-          <ul class="tags"><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>RLS</li><li>81 testes SQL</li></ul>
-          <div class="links">
-            <a class="btn primary" href="https://luminova-cwgc.onrender.com" target="_blank" rel="noopener">Abrir aplicação</a>
-            <a class="btn ghost" href="https://github.com/liviavittoria28-create/Luminova" target="_blank" rel="noopener">Código no GitHub</a>
-          </div>
-        </div>
-      </article>
+      <div class="filters" role="group" aria-label="Filtrar projetos por categoria">
+        <button type="button" aria-pressed="true" data-f="todos">Todos</button>
+        <button type="button" aria-pressed="false" data-f="fullstack">Aplicações Full Stack</button>
+        <button type="button" aria-pressed="false" data-f="engenharia">Engenharia de Software</button>
+        <button type="button" aria-pressed="false" data-f="frontend">Front-end e Interfaces</button>
+        <button type="button" aria-pressed="false" data-f="estudos">Estudos e protótipos</button>
+      </div>
 
-      <article class="project flip">
-        <div class="media phones">
-          <img src="assets/img/p-agenda-dia.jpg" alt="Agenda Expert: calendário do mês e atendimentos do dia" width="390" height="844" loading="lazy">
-          <img src="assets/img/p-agenda-financeiro.jpg" alt="Agenda Expert: saldo do mês com entradas e saídas" width="390" height="844" loading="lazy">
-          <img src="assets/img/p-agenda-clientes.jpg" alt="Agenda Expert: lista de clientes com busca" width="390" height="844" loading="lazy">
-        </div>
-        <div>
-          <span class="status">Em uso por um cliente</span>
-          <h3>Agenda Expert</h3>
-          <p class="desc">Sistema sob medida para um estúdio de estética. A profissional instala no iPhone como app e controla agenda, clientes e dinheiro em um só lugar.</p>
-          <ul class="feat">
-            <li>Agenda com detecção de conflito de horário</li>
-            <li>Clientes com anamnese e termo de consentimento</li>
-            <li>Financeiro mensal com exportação para planilha e PDF</li>
-            <li>Robô que confirma horários pelo WhatsApp</li>
-          </ul>
-          <ul class="tags"><li>Node.js</li><li>PostgreSQL</li><li>Supabase</li><li>PWA</li><li>81 testes</li></ul>
-          <div class="links">
-            <a class="btn ghost" href="https://github.com/liviavittoria28-create/Agenda-expert" target="_blank" rel="noopener">Código no GitHub</a>
+      <div class="projects" id="lista">
+        <!-- LumiNova -->
+        <article class="card feature" data-cat="fullstack">
+          <div class="shot">
+            <img id="lumi-img" src="assets/img/luminova-claro.jpg" alt="Página inicial da LumiNova no tema claro" width="1200" height="543" loading="lazy">
+            <button class="btn btn-ghost btn-sm swap" type="button" id="lumi-swap" aria-pressed="false">Ver tema escuro</button>
           </div>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="media phones">
-          <img src="assets/img/p-viva.jpg" alt="VIVA+: tela inicial com compromissos e remédios do dia" width="390" height="844" loading="lazy">
-        </div>
-        <div>
-          <span class="status plan">Em desenvolvimento</span>
-          <h3>VIVA+</h3>
-          <p class="desc">App de rotina, lembretes e contatos de confiança para pessoas idosas, com letra ajustável e alto contraste. A primeira fase funciona no celular, sem instalação.</p>
-          <ul class="feat">
-            <li>22 documentos de engenharia: requisitos, casos de uso, C4, arc42</li>
-            <li>Decisões de arquitetura registradas (ADRs)</li>
-            <li>Esquema PostgreSQL com RLS pronto para a próxima fase</li>
-          </ul>
-          <ul class="tags"><li>JavaScript</li><li>Acessibilidade</li><li>PostgreSQL</li><li>Documentação</li></ul>
-          <div class="links">
-            <a class="btn ghost" href="https://github.com/liviavittoria28-create/VIVA-" target="_blank" rel="noopener">Código no GitHub</a>
+          <div class="body">
+            <span class="cat">Aplicação Full Stack <span class="status live">No ar</span></span>
+            <h3>LumiNova</h3>
+            <p class="desc">Rede social brasileira organizada em comunidades e subcomunidades para fandoms, música, desenho, jogos e outros interesses.</p>
+            <p class="problem"><b>Problema:</b> nas redes generalistas, quem gosta de um tema de nicho fica perdido num feed único. Na LumiNova, cada interesse tem seu espaço.</p>
+            <ul class="feat">
+              <li>Chat em tempo real e notificações</li>
+              <li>XP, conquistas e árvore de habilidades validada no banco</li>
+              <li>RLS em 49 tabelas, 81 testes SQL e recursos de LGPD</li>
+            </ul>
+            <ul class="tags"><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Realtime</li></ul>
+            <div class="links">
+              <a class="btn btn-primary btn-sm" href="https://luminova-cwgc.onrender.com" target="_blank" rel="noopener">Abrir demonstração <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/Luminova" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <div class="minis">
-        <article class="mini">
-          <img src="assets/img/p-portugol.jpg" alt="Portugol World: mapa da jornada com casas de lições" width="1200" height="750" loading="lazy">
-          <div class="in">
+        <!-- Agenda Expert -->
+        <article class="card feature" data-cat="fullstack">
+          <div class="shot">
+            <div class="phones">
+              <img src="assets/img/agenda-dia.jpg" alt="Agenda Expert: calendário e atendimentos do dia (dados fictícios)" width="390" height="844" loading="lazy">
+              <img src="assets/img/agenda-financeiro.jpg" alt="Agenda Expert: resumo financeiro do mês (dados fictícios)" width="390" height="844" loading="lazy">
+              <img src="assets/img/agenda-clientes.jpg" alt="Agenda Expert: lista de clientes (dados fictícios)" width="390" height="844" loading="lazy">
+            </div>
+          </div>
+          <div class="body">
+            <span class="cat">Aplicação Full Stack <span class="status use">Em uso por uma cliente</span></span>
+            <h3>Agenda Expert</h3>
+            <p class="desc">Sistema de agenda, clientes e financeiro para uma profissional de estética, instalado no iPhone como app (PWA).</p>
+            <p class="problem"><b>Problema:</b> agenda de papel não avisa horários conflitantes, fichas se perdem e confirmar cada cliente no WhatsApp toma tempo.</p>
+            <ul class="feat">
+              <li>Agenda com detecção de conflito de horário</li>
+              <li>Clientes com anamnese, financeiro e exportação em PDF/CSV</li>
+              <li>Robô que confirma horários pelo WhatsApp; 81 testes</li>
+            </ul>
+            <ul class="tags"><li>Node.js</li><li>PostgreSQL</li><li>Supabase</li><li>PWA</li><li>WhatsApp</li></ul>
+            <div class="links">
+              <span class="private"><svg aria-hidden="true"><use href="#i-lock"/></svg>Código privado: projeto de cliente. Capturas com dados fictícios.</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIVA+ -->
+        <article class="card" data-cat="engenharia">
+          <div class="shot"><div class="phone-one"><img src="assets/img/viva.jpg" alt="VIVA+: tela inicial com compromisso e remédio do dia (dados fictícios)" width="390" height="844" loading="lazy"></div></div>
+          <div class="body">
+            <span class="cat">Engenharia de Software <span class="status dev">Fase 1 de 5</span></span>
+            <h3>VIVA+</h3>
+            <p class="desc">Plataforma de rotina e conexão familiar para pessoas idosas, com letra ajustável e alto contraste.</p>
+            <p class="problem"><b>Problema:</b> lembretes espalhados e apps pensados para o cuidador. No VIVA+, a pessoa idosa controla os próprios dados.</p>
+            <ul class="feat">
+              <li>Implementado: rotina, remédios, contatos de confiança e memórias</li>
+              <li>Planejado: login, família e permissões revogáveis (Supabase)</li>
+              <li>22 documentos de engenharia, 6 ADRs e esquema com RLS</li>
+            </ul>
+            <ul class="tags"><li>JavaScript</li><li>PostgreSQL</li><li>Acessibilidade</li><li>C4 / arc42</li></ul>
+            <div class="links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/VIVA-" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código e documentação</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Portugol World -->
+        <article class="card" data-cat="frontend estudos">
+          <div class="shot"><img src="assets/img/portugol.jpg" alt="Portugol World: mapa da jornada com as casas de lições" width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Front-end e Interfaces <span class="status live">No ar</span></span>
             <h3>Portugol World</h3>
-            <p>Jogo que ensina lógica de programação em 11 casas e um exame final. Cada quiz certo abre a próxima fase.</p>
-            <ul class="tags" style="margin-bottom:18px"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <p class="desc">Jogo de estudo de lógica de programação: 11 lições em sequência e 10 desafios de código.</p>
+            <p class="problem"><b>Problema:</b> listas de exercícios soltas e sem retorno. Aqui o progresso é visível e a correção é imediata.</p>
+            <ul class="feat">
+              <li>Quizzes, XP e vidas</li>
+              <li>Correção de código por rubrica</li>
+            </ul>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
             <div class="links">
-              <a class="btn primary" data-demo href="https://liviavittoria28-create.github.io/engenharia/" target="_blank" rel="noopener">Jogar</a>
-              <a class="btn ghost" href="https://github.com/liviavittoria28-create/engenharia" target="_blank" rel="noopener">Código</a>
+              <a class="btn btn-primary btn-sm" href="https://liviavittoria28-create.github.io/engenharia/" target="_blank" rel="noopener">Jogar <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/engenharia" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
             </div>
           </div>
         </article>
-        <article class="mini">
-          <img src="assets/img/p-colorarium.jpg" alt="Colorarium: busca de cores e famílias cromáticas" width="1200" height="750" loading="lazy">
-          <div class="in">
+
+        <!-- Colorarium -->
+        <article class="card small" data-cat="frontend">
+          <div class="shot"><img src="assets/img/colorarium.jpg" alt="Colorarium: resultado da busca por azul" width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Front-end e Interfaces</span>
             <h3>Colorarium</h3>
-            <p>Catálogo com mais de 500 cores, busca por nome ou HEX, significado, combinações e paletas sugeridas.</p>
-            <ul class="tags" style="margin-bottom:18px"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <p class="desc">Catálogo com 500 cores, busca por nome ou HEX e paletas sugeridas.</p>
+            <p class="problem"><b>Problema:</b> seletores de cor dão o código, mas não ajudam a decidir.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
             <div class="links">
-              <a class="btn primary" data-demo href="https://liviavittoria28-create.github.io/COR/" target="_blank" rel="noopener">Explorar</a>
-              <a class="btn ghost" href="https://github.com/liviavittoria28-create/COR" target="_blank" rel="noopener">Código</a>
+              <a class="btn btn-primary btn-sm" href="https://liviavittoria28-create.github.io/COR/" target="_blank" rel="noopener">Explorar <svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/COR" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Protótipo -->
+        <article class="card small" data-cat="estudos">
+          <div class="shot"><img src="assets/img/prototipo.jpg" alt="Tela inicial do protótipo da LumiNova" width="1200" height="712" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Back-end · protótipo <span class="status arch">Arquivado</span></span>
+            <h3>LumiNova em FastAPI</h3>
+            <p class="desc">Primeira versão da LumiNova, criada para validar a ideia.</p>
+            <p class="problem"><b>O que tem:</b> API em Python com JWT em cookie, senhas com Argon2, SQLAlchemy e limite de tentativas de login.</p>
+            <ul class="tags"><li>Python</li><li>FastAPI</li><li>SQLite</li></ul>
+            <div class="links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/teste" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Portfólio como projeto -->
+        <article class="card small" data-cat="frontend">
+          <div class="shot" style="display:grid;place-items:center;aspect-ratio:16/10"><img src="assets/monogram.svg" alt="Monograma L da identidade visual" width="96" height="96" style="width:96px;aspect-ratio:1"></div>
+          <div class="body">
+            <span class="cat">Front-end e Interfaces</span>
+            <h3>Este portfólio</h3>
+            <p class="desc">Identidade visual própria com monograma L, sem frameworks, acessível e responsivo.</p>
+            <p class="problem"><b>Técnico:</b> a seção GitHub lista os repositórios pela API pública, com filtro e uma lista fixa caso a API falhe.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SVG</li></ul>
+            <div class="links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/liviavittoria28-create/liviavittoria28-create.github.io" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
             </div>
           </div>
         </article>
       </div>
+      <p class="sr" aria-live="polite" id="filtro-status"></p>
     </div>
   </section>
 
-  <section class="block" id="experiencia">
-    <div class="wrap">
-      <div class="head">
-        <h2>Experiência prática</h2>
-        <p>Projetos pessoais e de estudo, em ordem de quando foram publicados.</p>
-      </div>
-      <ol class="timeline">
-        <li><time datetime="2026-09">set. 2026</time><div><h3>Portugol World e Colorarium</h3><p>Primeiros projetos publicados: interfaces ricas em uma única página, sem bibliotecas.</p></div></li>
-        <li><time datetime="2026-10">out. 2026</time><div><h3>Protótipo da LumiNova em FastAPI</h3><p>API em Python com autenticação JWT, senhas com Argon2 e SQLite para validar a ideia.</p></div></li>
-        <li><time datetime="2026-11">nov. 2026</time><div><h3>Agenda Expert em produção</h3><p>Primeiro sistema entregue a um cliente real, com deploy no Render e banco no Supabase.</p></div></li>
-        <li><time datetime="2026-11">nov. 2026</time><div><h3>LumiNova 4.1 e VIVA+</h3><p>Migração da LumiNova para Supabase com RLS e início do VIVA+, guiado por documentação de engenharia.</p></div></li>
-      </ol>
-    </div>
-  </section>
-
+  <!-- ======= github ======= -->
   <section class="block" id="github">
     <div class="wrap">
       <div class="head">
         <h2>No GitHub</h2>
-        <p>Repositórios públicos, carregados direto da API do GitHub.</p>
+        <p>Repositórios públicos atualizados recentemente, carregados da API do GitHub. Protótipos arquivados e repositórios em preparação ficam de fora.</p>
       </div>
       <div class="repos" id="repos">
-        <a class="repo" href="https://github.com/liviavittoria28-create/Luminova"><strong>Luminova</strong><span>Rede social de comunidades com Supabase e RLS.</span><small><i></i>HTML</small></a>
-        <a class="repo" href="https://github.com/liviavittoria28-create/Agenda-expert"><strong>Agenda-expert</strong><span>Agenda, clientes e financeiro para estúdio de estética.</span><small><i style="background:#f1e05a"></i>JavaScript</small></a>
-        <a class="repo" href="https://github.com/liviavittoria28-create/VIVA-"><strong>VIVA-</strong><span>Rotina e conexão familiar para pessoas idosas.</span><small><i></i>HTML</small></a>
+        <a class="repo" href="https://github.com/liviavittoria28-create/Luminova"><strong>Luminova</strong><span>Rede social de comunidades com Supabase, RLS e chat em tempo real.</span><small><i style="background:#e34c26"></i>HTML</small></a>
+        <a class="repo" href="https://github.com/liviavittoria28-create/VIVA-"><strong>VIVA-</strong><span>Rotina e conexão familiar para pessoas idosas.</span><small><i style="background:#e34c26"></i>HTML</small></a>
+        <a class="repo" href="https://github.com/liviavittoria28-create/engenharia"><strong>engenharia</strong><span>Portugol World: jogo de estudo de lógica de programação.</span><small><i style="background:#e34c26"></i>HTML</small></a>
       </div>
-      <p class="gh-foot"><a href="https://github.com/liviavittoria28-create?tab=repositories" target="_blank" rel="noopener">Ver todos os repositórios</a></p>
+      <p class="gh-foot"><a href="https://github.com/liviavittoria28-create" target="_blank" rel="noopener">Ver perfil completo no GitHub</a></p>
     </div>
   </section>
 
-  <section class="block" id="contato">
+  <!-- ======= contato ======= -->
+  <section class="block alt" id="contato">
     <div class="wrap">
       <div class="contact">
         <div>
           <h2>Vamos conversar?</h2>
-          <p>Estou aberta a oportunidades como desenvolvedora front-end. Se quiser ver algo do código mais de perto, é só chamar.</p>
+          <p>Estou aberta a oportunidades como desenvolvedora Full Stack e a conversas sobre os projetos. Respondo por e-mail ou pelo LinkedIn.</p>
         </div>
-        <div class="list">
-          <a href="https://github.com/liviavittoria28-create" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-          <!-- CONTATO: adicionar LinkedIn e e-mail quando a Lívia confirmar quais podem ficar públicos -->
+        <div class="ways">
+          <div class="way" style="padding-right:12px">
+            <a href="mailto:liviavittoria28@gmail.com" style="display:flex;align-items:center;gap:14px;color:inherit;text-decoration:none;min-width:0;flex:1">
+              <span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <div><b>E-mail</b><span>liviavittoria28@gmail.com</span></div>
+            </a>
+            <button class="copy" type="button" data-copy="liviavittoria28@gmail.com">Copiar</button>
+          </div>
+          <a class="way" href="https://www.linkedin.com/in/livia-vittoria-732b8a430/" target="_blank" rel="noopener">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-in"/></svg></span>
+            <div><b>LinkedIn</b><span>in/livia-vittoria-732b8a430</span></div>
+          </a>
+          <a class="way" href="https://github.com/liviavittoria28-create" target="_blank" rel="noopener">
+            <span class="ic"><svg aria-hidden="true"><use href="#i-gh"/></svg></span>
+            <div><b>GitHub</b><span>liviavittoria28-create</span></div>
+          </a>
         </div>
       </div>
     </div>
@@ -436,7 +580,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Lívia Vittoria</span>
+    <span><img src="assets/monogram.svg" alt="" width="24" height="24">© 2026 Lívia Vittoria · Desenvolvedora Full Stack</span>
     <a href="#inicio">Voltar ao topo</a>
   </div>
 </footer>
@@ -444,54 +588,67 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <script>
 (() => {
   // menu no celular
-  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-  });
-  menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+  const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
+  const setMenu = open => { menu.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu'); };
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-  // borda do cabeçalho e item ativo do menu
-  const header = document.getElementById('top');
-  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), { passive: true });
+  // cabeçalho e item ativo
+  const top = document.getElementById('topo');
+  addEventListener('scroll', () => top.classList.toggle('on', scrollY > 8), { passive: true });
   const links = [...menu.querySelectorAll('a')];
-  const io = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.hash === '#' + en.target.id));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.hash === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
 
-  // painel de testes: digita as linhas uma vez, ao carregar
-  const run = document.getElementById('run');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) {
-    const lines = run.innerHTML.split('\n');
-    run.innerHTML = '';
-    let i = 0;
-    const next = () => { if (i < lines.length) { run.innerHTML += (i ? '\n' : '') + lines[i++]; setTimeout(next, i === 1 || i === 6 ? 380 : 150); } };
-    setTimeout(next, 500);
-  }
+  // filtro de projetos
+  const btns = [...document.querySelectorAll('.filters button')], cards = [...document.querySelectorAll('#lista .card')], live = document.getElementById('filtro-status');
+  btns.forEach(b => b.addEventListener('click', () => {
+    const f = b.dataset.f;
+    btns.forEach(x => x.setAttribute('aria-pressed', x === b));
+    let n = 0;
+    cards.forEach(c => { const show = f === 'todos' || c.dataset.cat.split(' ').includes(f); c.hidden = !show; if (show) n++; });
+    live.textContent = n + (n === 1 ? ' projeto exibido' : ' projetos exibidos');
+  }));
 
-  // repositórios públicos pela API do GitHub (se falhar, ficam os cartões fixos)
-  const colors = { HTML: '#e34c26', JavaScript: '#f1e05a', CSS: '#663399', Python: '#3572A5' };
+  // LumiNova: alternar tema claro/escuro na captura
+  const img = document.getElementById('lumi-img'), swap = document.getElementById('lumi-swap');
+  swap.addEventListener('click', () => {
+    const dark = swap.getAttribute('aria-pressed') !== 'true';
+    img.src = dark ? 'assets/img/luminova-escuro.jpg' : 'assets/img/luminova-claro.jpg';
+    img.alt = 'Página inicial da LumiNova no tema ' + (dark ? 'escuro' : 'claro');
+    swap.setAttribute('aria-pressed', dark);
+    swap.textContent = dark ? 'Ver tema claro' : 'Ver tema escuro';
+  });
+
+  // copiar e-mail
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copiado'; }
+    catch { b.textContent = 'Selecione e copie'; }
+    setTimeout(() => (b.textContent = 'Copiar'), 1800);
+  }));
+
+  // repositórios públicos (filtrados)
+  const hide = new Set(['liviavittoria28-create', 'liviavittoria28-create.github.io', 'teste', 'VELORA', 'LOLA']);
   const known = {
-    Luminova: 'Rede social de comunidades e fandoms com Supabase, RLS e chat em tempo real.',
-    'Agenda-expert': 'Agenda, clientes, financeiro e robô de WhatsApp para estúdio de estética (PWA).',
-    'VIVA-': 'Rotina, lembretes e contatos de confiança para pessoas idosas.',
-    engenharia: 'Portugol World: jogo que ensina lógica de programação.',
-    COR: 'Colorarium: catálogo interativo com mais de 500 cores.',
-    teste: 'Protótipo inicial da LumiNova em Python/FastAPI.'
+    Luminova: 'Rede social de comunidades com Supabase, RLS e chat em tempo real.',
+    'VIVA-': 'Rotina e conexão familiar para pessoas idosas.',
+    engenharia: 'Portugol World: jogo de estudo de lógica de programação.',
+    COR: 'Colorarium: catálogo interativo com 500 cores.'
   };
+  const colors = { HTML: '#e34c26', JavaScript: '#f1e05a', CSS: '#663399', Python: '#3572A5' };
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   fetch('https://api.github.com/users/liviavittoria28-create/repos?per_page=100&sort=pushed')
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(list => {
-      const repos = list.filter(r => !r.fork && !r.archived && r.size > 0 && r.name !== 'liviavittoria28-create').slice(0, 9);
+      const repos = list.filter(r => !r.fork && !r.archived && !r.private && r.size > 0 && !hide.has(r.name)).slice(0, 6);
       if (!repos.length) return;
       document.getElementById('repos').innerHTML = repos.map(r => `
         <a class="repo" href="${esc(r.html_url)}" target="_blank" rel="noopener">
           <strong>${esc(r.name)}</strong>
-          <span>${esc(r.description || known[r.name] || '')}</span>
+          <span>${esc(known[r.name] || r.description || '')}</span>
           <small>${r.language ? `<i style="background:${colors[r.language] || '#8a97ad'}"></i>${esc(r.language)}` : ''}</small>
         </a>`).join('');
     })
